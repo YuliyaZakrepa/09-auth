@@ -52,7 +52,7 @@ export async function login ({email, password}: LoginRequest): Promise<User> {
   return data;
 }
 export async function logout (): Promise<void> {
-  await API.post<User>("/auth/logout");
+  await API.post("/auth/logout");
 }
 export async function getMe (): Promise<User> {
   const {data} = await API.get<User>("/users/me");
