@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -51,6 +52,7 @@ export default function RootLayout({
     <html lang="en" className={roboto.variable}>
       <body>
         <TanStackProvider>
+          <AuthProvider>
           <Toaster position="top-center" reverseOrder={false} />
           <Header />
           <main>
@@ -58,6 +60,7 @@ export default function RootLayout({
             {modal}
           </main>
           <Footer />
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

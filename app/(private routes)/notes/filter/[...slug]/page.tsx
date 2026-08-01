@@ -1,5 +1,5 @@
 import NotesClient from "./Notes.client";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/serverApi";
 import { NoteTag } from "@/types/note";
 import {
   QueryClient,

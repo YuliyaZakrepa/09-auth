@@ -6,9 +6,11 @@ export interface Note{
       content: string;
       createdAt: string;
       updatedAt: string;
+      userId: string;
       tag: NoteTag;
 }
 
+    
 export interface NewNoteData{
     title: string;
   content: string;

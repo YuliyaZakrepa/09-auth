@@ -1,5 +1,6 @@
 import css from "./Header.module.css";
 import Link from "next/link";
+import AuthNavigation from "../AuthNavigation/AuthNavigation";
 function Header() {
   return (
     <header className={css.header}>
@@ -14,6 +15,7 @@ function Header() {
           <li>
             <Link href="/notes/filter/all">Notes</Link>
           </li>
+          <AuthNavigation/>
         </ul>
       </nav>
     </header>
