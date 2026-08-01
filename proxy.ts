@@ -1,20 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { parseSetCookie } from "cookie";
-
 import { api } from "@/app/api/api";
-
 const privateRoutes = ["/profile", "/notes"];
 const authRoutes = ["/sign-in", "/sign-up"];
 
-export async function proxy(request: NextRequest) {
+export async function proxy (request:NextRequest) {
   const { pathname } = request.nextUrl;
-
   const cookieStore = await cookies();
-
   const accessToken = cookieStore.get("accessToken");
   const refreshToken = cookieStore.get("refreshToken");
-
   const isAuthRoute = authRoutes.some((route) => pathname.startsWith(route));
   const isPrivateRoute = privateRoutes.some((route) =>
     pathname.startsWith(route),
@@ -82,7 +77,7 @@ export async function proxy(request: NextRequest) {
     }
 
     if (isAuthRoute) {
-      return NextResponse.redirect(new URL("/", request.url)); // Виправлено: редірект на головну сторінку
+      return NextResponse.redirect(new URL("/", request.url));
     }
   }
 }
