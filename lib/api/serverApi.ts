@@ -1,7 +1,8 @@
-import type { Note, NoteTag, NewNoteData } from "@/types/note";
+import type { Note, NoteTag } from "@/types/note";
 import { API } from "./api";
 import { type User } from "@/types/user";
 import { cookies } from "next/headers";
+import { AxiosResponse } from "axios";
 
 interface FetchNotesResponse {
   notes: Note[];
@@ -45,12 +46,14 @@ export async function getMe(): Promise<User> {
   });
   return data;
 }
-export async function checkSession(): Promise<CheckSessionRequest> {
+export async function checkSession(): Promise<
+  AxiosResponse<CheckSessionRequest>
+> {
   const cookieStore = await cookies();
-  const { data } = await API.get<CheckSessionRequest>("/auth/session", {
+  const response = await API.get<CheckSessionRequest>("/auth/session", {
     headers: {
       Cookie: cookieStore.toString(),
     },
   });
-  return data;
+  return response;
 }

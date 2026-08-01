@@ -20,7 +20,6 @@ interface LoginRequest{
   password: string
 }
 export type UpdateUserRequest = {
-  email?: string;
     username: string; 
     avatar?:string
 };

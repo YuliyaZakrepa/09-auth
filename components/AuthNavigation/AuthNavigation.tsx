@@ -8,7 +8,7 @@ import { ApiError } from "@/lib/api/api";
 import toast from "react-hot-toast";
 
 export default function AuthNavigation() {
-  const { isAuthenticated, user, clearIsAuthenticated, isLoading } =
+  const { isAuthenticated, user, clearIsAuthenticated} =
     useAuthStore();
   const router = useRouter();
   const handleLogout = async () => {
@@ -24,9 +24,7 @@ export default function AuthNavigation() {
       toast(errorMessage);
     }
   };
-  if (isLoading) {
-    return null;
-  }
+  
   if (isAuthenticated !== true) {
     return (
       <>
